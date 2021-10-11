@@ -46,7 +46,7 @@ $Files = @()
 ForEach ($Folder in $Path) {
     $AppFiles = Get-AcFileMetadata -Verbose -Path $Folder
     $UniqueFiles = Select-AcUniqueMetadata -FileList $AppFiles -Verbose
-    $RegExFiles = ConvertTo-RegExPath -Files $UniqueFiles -Path $Folder -Verbose
+    $RegExFiles = ConvertTo-AcRegExPath -Files $UniqueFiles -Path $Folder -Verbose
     $Files += $RegExFiles
     Remove-Variable AppFiles, NoMetadata, Metadata, UniqueFiles, RegExFiles
 }
